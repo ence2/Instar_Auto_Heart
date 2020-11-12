@@ -12,7 +12,7 @@ namespace InstarAutoHeart
     public class Config : JsonConfig<Config>
     {
         public List<string> priorityTags = new List<string>();
-        public bool hideChrome = false;
+        public bool hideChrome = true;
 
         public string ID = "";
         public string PW = "";

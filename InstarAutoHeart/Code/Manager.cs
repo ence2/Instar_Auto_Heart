@@ -46,6 +46,10 @@ namespace InstarAutoHeart
                     _instartAutoHeart.tbTags.AppendText(System.Environment.NewLine);
                 }
 
+#if !_DEBUG
+                Config.Instance.Data.hideChrome = true;
+#endif
+
                 // Init Selenium
                 _driverService = ChromeDriverService.CreateDefaultService();
                 _driverService.HideCommandPromptWindow = Config.Instance.Data.hideChrome;
@@ -252,7 +256,7 @@ namespace InstarAutoHeart
 
                             input.SendKeys(_currentTarget.searchKeyword);
                             List<string> tempList = new List<string>();
-                            var list = WaitForVisivle(By.XPath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/div[3]/div[2]/div"));
+                            var list = WaitForVisivle(By.XPath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/div[4]/div"));
 
                             bool isSave = false;
                             string buffer = "";
