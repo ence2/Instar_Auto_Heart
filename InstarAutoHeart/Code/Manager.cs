@@ -46,13 +46,14 @@ namespace InstarAutoHeart
                     _instartAutoHeart.tbTags.AppendText(System.Environment.NewLine);
                 }
 
-#if !_DEBUG
-                Config.Instance.Data.hideChrome = true;
+                bool isHideChrome = true;
+#if _DEBUG
+                isHideChrome = false;
 #endif
 
                 // Init Selenium
                 _driverService = ChromeDriverService.CreateDefaultService();
-                _driverService.HideCommandPromptWindow = Config.Instance.Data.hideChrome;
+                _driverService.HideCommandPromptWindow = isHideChrome;
 
                 _options = new ChromeOptions();
                 if(_driverService.HideCommandPromptWindow)
