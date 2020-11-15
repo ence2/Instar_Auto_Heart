@@ -46,7 +46,7 @@ namespace InstarAutoHeart
                     _instartAutoHeart.tbTags.AppendText(System.Environment.NewLine);
                 }
 
-                bool isHideChrome = true;
+                bool isHideChrome = false;
 #if _DEBUG
                 isHideChrome = false;
 #endif
