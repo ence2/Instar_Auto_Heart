@@ -109,7 +109,7 @@ namespace InstarAutoHeart
 
                 System.Threading.Thread.Sleep(1500);
                 loginBtn.Click();
-
+                System.Threading.Thread.Sleep(10000);
                 // 로그인 후 쿠키 저장 다음에 하기 버튼
                 WaitForVisivle(By.XPath("/html/body/div[1]/section/main/div/div/div/div/button")).Click();
 

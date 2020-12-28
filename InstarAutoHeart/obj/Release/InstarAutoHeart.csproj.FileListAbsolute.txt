@@ -28,7 +28,6 @@ D:\GitHub\Instar_Auto_Heart\InstarAutoHeart\bin\Release\HtmlAgilityPack.pdb
 D:\GitHub\Instar_Auto_Heart\InstarAutoHeart\bin\Release\HtmlAgilityPack.xml
 D:\GitHub\Instar_Auto_Heart\InstarAutoHeart\bin\Release\Newtonsoft.Json.xml
 D:\GitHub\Instar_Auto_Heart\InstarAutoHeart\bin\Release\WebDriver.xml
-D:\GitHub\Instar_Auto_Heart\InstarAutoHeart\obj\Release\InstarAutoHeart.csprojAssemblyReference.cache
 D:\GitHub\Instar_Auto_Heart\InstarAutoHeart\obj\Release\InstarAutoHeart.InstarAutoHeart.resources
 D:\GitHub\Instar_Auto_Heart\InstarAutoHeart\obj\Release\InstarAutoHeart.Properties.Resources.resources
 D:\GitHub\Instar_Auto_Heart\InstarAutoHeart\obj\Release\InstarAutoHeart.csproj.GenerateResource.cache
