@@ -46,6 +46,12 @@ namespace InstarAutoHeart
                     _instartAutoHeart.tbTags.AppendText(System.Environment.NewLine);
                 }
 
+                foreach (var item in Config.Instance.Data.alreadySerached)
+                {
+                    _instartAutoHeart.tbExceptTags.AppendText(item);
+                    _instartAutoHeart.tbExceptTags.AppendText(System.Environment.NewLine);
+                }
+
                 bool isHideChrome = false;
 #if _DEBUG
                 isHideChrome = false;
