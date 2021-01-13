@@ -43,7 +43,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tbExceptTags = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -136,31 +140,59 @@
             // 
             // btnStart
             // 
+            this.btnStart.Enabled = false;
             this.btnStart.Location = new System.Drawing.Point(15, 90);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(159, 39);
             this.btnStart.TabIndex = 8;
             this.btnStart.Text = "작업 시작";
             this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Enabled = false;
             this.btnStart.Click += new System.EventHandler(this.Start_Click);
             // 
             // btnStop
             // 
+            this.btnStop.Enabled = false;
             this.btnStop.Location = new System.Drawing.Point(180, 90);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(163, 39);
             this.btnStop.TabIndex = 9;
             this.btnStop.Text = "작업 중단";
             this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Enabled = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tbExceptTags);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Location = new System.Drawing.Point(484, 8);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(122, 536);
+            this.panel2.TabIndex = 8;
+            // 
+            // tbExceptTags
+            // 
+            this.tbExceptTags.Location = new System.Drawing.Point(3, 26);
+            this.tbExceptTags.Multiline = true;
+            this.tbExceptTags.Name = "tbExceptTags";
+            this.tbExceptTags.Size = new System.Drawing.Size(117, 509);
+            this.tbExceptTags.TabIndex = 1;
+            this.tbExceptTags.TextChanged += new System.EventHandler(this.tbExceptTags_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "탐색제외Tag";
             // 
             // InstarAutoHeart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 556);
+            this.ClientSize = new System.Drawing.Size(614, 556);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.panel1);
@@ -175,6 +207,8 @@
             this.Text = "InstarAutoHeart";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,6 +228,9 @@
         public System.Windows.Forms.TextBox tbTags;
         public System.Windows.Forms.Button btnStart;
         public System.Windows.Forms.Button btnStop;
+        public System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.TextBox tbExceptTags;
+        public System.Windows.Forms.Label label5;
     }
 }
 

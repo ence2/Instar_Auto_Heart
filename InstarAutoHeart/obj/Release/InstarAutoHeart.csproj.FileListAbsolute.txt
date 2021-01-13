@@ -54,3 +54,4 @@ D:\MyGitHub\Instar_Auto_Heart\InstarAutoHeart\obj\Release\InstarAutoHeart.csproj
 D:\MyGitHub\Instar_Auto_Heart\InstarAutoHeart\obj\Release\InstarAutoHeart.csproj.CopyComplete
 D:\MyGitHub\Instar_Auto_Heart\InstarAutoHeart\obj\Release\InstarAutoHeart.exe
 D:\MyGitHub\Instar_Auto_Heart\InstarAutoHeart\obj\Release\InstarAutoHeart.pdb
+D:\GitHub\Instar_Auto_Heart\InstarAutoHeart\obj\Release\InstarAutoHeart.csprojAssemblyReference.cache

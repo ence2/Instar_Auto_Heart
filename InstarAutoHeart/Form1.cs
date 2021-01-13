@@ -97,5 +97,20 @@ namespace InstarAutoHeart
 
             btnStart.Enabled = true;
         }
+
+        private void tbExceptTags_TextChanged(object sender, EventArgs e)
+        {
+            if (!isInit)
+                return;
+
+            var tb = (System.Windows.Forms.TextBox)sender;
+            Config.Instance.Data.alreadySerached.Clear();
+            foreach (var item in tb.Text.Replace("\r\n", ",").Split(','))
+            {
+                Config.Instance.Data.alreadySerached.Add(item);
+            }
+
+            Config.Instance.Save();
+        }
     }
 }

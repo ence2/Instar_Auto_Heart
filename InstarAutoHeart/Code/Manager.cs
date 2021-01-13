@@ -273,7 +273,7 @@ namespace InstarAutoHeart
                                     {
                                         if(Config.Instance.Data.alreadySerached.Exists(w => w == buffer))
                                         {
-                                            _instartAutoHeart.SendLog("이미 탐색한 테그 버림 : " + buffer);
+                                            _instartAutoHeart.SendLog("제외 테그 버림 : " + buffer);
                                         }
                                         else
                                         {
@@ -322,7 +322,7 @@ namespace InstarAutoHeart
 
                         //아래 주소로 이동
                         var k = _currentTarget.tags.Dequeue();
-                        Config.Instance.Data.alreadySerached.Add(k);
+                        //Config.Instance.Data.alreadySerached.Add(k);
 
                         Config.Instance.Save();
 
