@@ -92,12 +92,13 @@ namespace InstarAutoHeart
                 if (!Config.Instance.Data.dailyLoginCount.ContainsKey(DateTime.Today.ToString()))
                     Config.Instance.Data.dailyLoginCount.Add(DateTime.Today.ToString(), 0);
 
+#if !_DEBUG
                 if (Config.Instance.Data.dailyLoginCount[DateTime.Today.ToString()] >= 5)
                 {
                     _instartAutoHeart.SendLog("당일 로그인 카운트 n번 이상이어서 실패 처리(위험)");
                     return false;
                 }
-
+#endif
                 // login
                     _driver.Navigate().GoToUrl("https://www.instagram.com/?hl=ko");
 
@@ -116,10 +117,12 @@ namespace InstarAutoHeart
                 System.Threading.Thread.Sleep(1500);
                 loginBtn.Click();
                 System.Threading.Thread.Sleep(10000);
-                // 로그인 후 쿠키 저장 다음에 하기 버튼
-                WaitForVisivle(By.XPath("/html/body/div[1]/section/main/div/div/div/div/button")).Click();
 
+                // 알림 설정 안함
                 WaitForVisivle(By.XPath("/html/body/div[4]/div/div/div/div[3]/button[2]")).Click();
+
+                // 로그인 후 쿠키 저장 다음에 하기 버튼
+                //WaitForVisivle(By.XPath("/html/body/div[1]/section/main/div/div/div/div/button")).Click();
 
                 // 검색 인풋창이 보이면 로그인 성공
                 WaitForVisivle(By.XPath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/input"));
@@ -263,7 +266,7 @@ namespace InstarAutoHeart
 
                             input.SendKeys(_currentTarget.searchKeyword);
                             List<string> tempList = new List<string>();
-                            var list = WaitForVisivle(By.XPath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/div[4]/div"));
+                            var list = WaitForVisivle(By.XPath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/div[3]/div/div[2]/div"));
 
                             bool isSave = false;
                             string buffer = "";
@@ -363,9 +366,9 @@ namespace InstarAutoHeart
 
                             System.Threading.Thread.Sleep(random.Next(1000, 2000));
 
-                            var pageLoad = WaitForVisivle(By.XPath("/html/body/div[5]/div[2]/div/article/header"));
+                            var pageLoad = WaitForVisivle(By.XPath("/html/body/div[4]/div[2]/div/article/header"));
                          
-                            var heart = _driver.FindElementsByXPath("/html/body/div[5]/div[2]/div/article/div[3]/section[1]/span[1]/button");
+                            var heart = _driver.FindElementsByXPath("/html/body/div[4]/div[2]/div/article/div[3]/section[1]/span[1]/button/div/span");
                             if (heart.Count != 0)
                             {
                                 heart[0].Click();
@@ -402,11 +405,11 @@ namespace InstarAutoHeart
                             System.Threading.Thread.Sleep(random.Next(30000, 48000));
                             _instartAutoHeart.SendLog(string.Format("진행중.. {0} / {1}, 금일 좋아요 개수 : {2}", cnt, totalCnt, Config.Instance.Data.dailyHeartCount[DateTime.Today.ToString()]));
 
-                            var next = _driver.FindElementsByXPath("/html/body/div[5]/div[1]/div/div/a");
+                            var next = _driver.FindElementsByXPath("/html/body/div[4]/div[1]/div/div/a");
                             if (next.Count == 1 && first)
                                 break;
 
-                            var next2 = _driver.FindElementsByXPath("/html/body/div[5]/div[1]/div/div/a[2]");
+                            var next2 = _driver.FindElementsByXPath("/html/body/div[4]/div[1]/div/div/a[2]");
                             if(next2.Count != 0)
                             {
                                 next2[0].Click();
