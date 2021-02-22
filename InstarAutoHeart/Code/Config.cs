@@ -23,6 +23,8 @@ namespace InstarAutoHeart
         public Dictionary<string, int> dailyFollowCount = new Dictionary<string, int>();
         public Dictionary<string, int> dailyHeartCount = new Dictionary<string, int>();
         public Dictionary<string, int> dailyLoginCount = new Dictionary<string, int>();
+
+        public List<string> exceptStrings = new List<string>();
     }
 
     public class JsonConfig<T> : Singleton<JsonConfig<T>> where T : new()

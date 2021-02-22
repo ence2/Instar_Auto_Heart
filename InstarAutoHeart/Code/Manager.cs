@@ -12,7 +12,6 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System.Threading;
 using System.Diagnostics;
-using System.Linq;
 
 namespace InstarAutoHeart
 {
@@ -50,6 +49,12 @@ namespace InstarAutoHeart
                 {
                     _instartAutoHeart.tbExceptTags.AppendText(item);
                     _instartAutoHeart.tbExceptTags.AppendText(System.Environment.NewLine);
+                }
+
+                foreach (var item in Config.Instance.Data.exceptStrings)
+                {
+                    _instartAutoHeart.tbExceptStr.AppendText(item);
+                    _instartAutoHeart.tbExceptStr.AppendText(System.Environment.NewLine);
                 }
 
                 bool isHideChrome = false;
@@ -118,11 +123,12 @@ namespace InstarAutoHeart
                 loginBtn.Click();
                 System.Threading.Thread.Sleep(10000);
 
-                // 알림 설정 안함
-                WaitForVisivle(By.XPath("/html/body/div[4]/div/div/div/div[3]/button[2]")).Click();
 
                 // 로그인 후 쿠키 저장 다음에 하기 버튼
-                //WaitForVisivle(By.XPath("/html/body/div[1]/section/main/div/div/div/div/button")).Click();
+                WaitForVisivle(By.XPath("/html/body/div[1]/section/main/div/div/div/div/button")).Click();
+
+                // 알림 설정 안함
+                WaitForVisivle(By.XPath("/html/body/div[4]/div/div/div/div[3]/button[2]")).Click();
 
                 // 검색 인풋창이 보이면 로그인 성공
                 WaitForVisivle(By.XPath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/input"));
@@ -334,6 +340,7 @@ namespace InstarAutoHeart
                         //Config.Instance.Data.alreadySerached.Add(k);
 
                         Config.Instance.Save();
+                        _instartAutoHeart.SetCurrentTargetTag(k);
 
                         string targetKey = k.Replace("#", "");
                         string log = string.Format("{0} 좋아요 작업 진행중, 남은 tags : {1}, 남은 keywords : {2}", targetKey, _currentTarget.tags.Count, _searchWords.Count);
@@ -366,9 +373,9 @@ namespace InstarAutoHeart
 
                             System.Threading.Thread.Sleep(random.Next(1000, 2000));
 
-                            var pageLoad = WaitForVisivle(By.XPath("/html/body/div[4]/div[2]/div/article/header"));
+                            var pageLoad = WaitForVisivle(By.XPath("/html/body/div[5]/div[2]/div/article/header"));
                          
-                            var heart = _driver.FindElementsByXPath("/html/body/div[4]/div[2]/div/article/div[3]/section[1]/span[1]/button/div/span");
+                            var heart = _driver.FindElementsByXPath("/html/body/div[5]/div[2]/div/article/div[3]/section[1]/span[1]/button/div/span");
                             if (heart.Count != 0)
                             {
                                 heart[0].Click();
@@ -405,11 +412,11 @@ namespace InstarAutoHeart
                             System.Threading.Thread.Sleep(random.Next(30000, 48000));
                             _instartAutoHeart.SendLog(string.Format("진행중.. {0} / {1}, 금일 좋아요 개수 : {2}", cnt, totalCnt, Config.Instance.Data.dailyHeartCount[DateTime.Today.ToString()]));
 
-                            var next = _driver.FindElementsByXPath("/html/body/div[4]/div[1]/div/div/a");
+                            var next = _driver.FindElementsByXPath("/html/body/div[5]/div[1]/div/div/a");
                             if (next.Count == 1 && first)
                                 break;
 
-                            var next2 = _driver.FindElementsByXPath("/html/body/div[4]/div[1]/div/div/a[2]");
+                            var next2 = _driver.FindElementsByXPath("/html/body/div[5]/div[1]/div/div/a[2]");
                             if(next2.Count != 0)
                             {
                                 next2[0].Click();

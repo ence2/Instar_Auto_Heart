@@ -16,11 +16,17 @@ namespace InstarAutoHeart
 
         public LogDelegate logDelegate;
 
+        public delegate void CurrentTagDelegate(string msg);
+
+        public CurrentTagDelegate currentTagDelegate;
+
         public InstarAutoHeart()
         {
             InitializeComponent();
 
             logDelegate = new LogDelegate(SendLog);
+            currentTagDelegate = new CurrentTagDelegate(SetCurrentTargetTag);
+
 
             this.tbID.Text = Config.Instance.Data.ID;
             this.tbPW.Text = Config.Instance.Data.PW;
@@ -37,6 +43,21 @@ namespace InstarAutoHeart
             {
                 this.tbLogConsole.AppendText(DateTime.Now.ToString("[MM/dd HH:mm:ss] ") + msg);
                 this.tbLogConsole.AppendText(Environment.NewLine);
+            }
+        }
+
+        public void SetCurrentTargetTag(string str)
+        {
+            {
+                if (this.currentTargetTag.InvokeRequired)
+                {
+                    var d = currentTagDelegate;
+                    Invoke(d, new object[] { str });
+                }
+                else
+                {
+                    this.currentTargetTag.Text = str;
+                }
             }
         }
 
@@ -111,6 +132,26 @@ namespace InstarAutoHeart
             }
 
             Config.Instance.Save();
+        }
+
+        private void tbExceptStr_TextChanged(object sender, EventArgs e)
+        {
+            if (!isInit)
+                return;
+
+            var tb = (System.Windows.Forms.TextBox)sender;
+            Config.Instance.Data.exceptStrings.Clear();
+            foreach (var item in tb.Text.Replace("\r\n", ",").Split(','))
+            {
+                Config.Instance.Data.exceptStrings.Add(item);
+            }
+
+            Config.Instance.Save();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

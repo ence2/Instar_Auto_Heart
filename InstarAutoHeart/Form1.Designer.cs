@@ -46,8 +46,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbExceptTags = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tbExceptStr = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.currentTargetTag = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -187,11 +192,51 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "탐색제외Tag";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.tbExceptStr);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Location = new System.Drawing.Point(612, 7);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(122, 536);
+            this.panel3.TabIndex = 8;
+            // 
+            // tbExceptStr
+            // 
+            this.tbExceptStr.Location = new System.Drawing.Point(3, 26);
+            this.tbExceptStr.Multiline = true;
+            this.tbExceptStr.Name = "tbExceptStr";
+            this.tbExceptStr.Size = new System.Drawing.Size(117, 509);
+            this.tbExceptStr.TabIndex = 1;
+            this.tbExceptStr.TextChanged += new System.EventHandler(this.tbExceptStr_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 12);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "탐색제외 Str";
+            // 
+            // currentTargetTag
+            // 
+            this.currentTargetTag.AutoSize = true;
+            this.currentTargetTag.Location = new System.Drawing.Point(267, 133);
+            this.currentTargetTag.Name = "currentTargetTag";
+            this.currentTargetTag.Size = new System.Drawing.Size(77, 12);
+            this.currentTargetTag.TabIndex = 10;
+            this.currentTargetTag.Text = "None_Target";
+            this.currentTargetTag.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.currentTargetTag.Click += new System.EventHandler(this.label7_Click);
+            // 
             // InstarAutoHeart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 556);
+            this.ClientSize = new System.Drawing.Size(746, 556);
+            this.Controls.Add(this.currentTargetTag);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
@@ -209,6 +254,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,6 +278,10 @@
         public System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.TextBox tbExceptTags;
         public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.TextBox tbExceptStr;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label currentTargetTag;
     }
 }
 
